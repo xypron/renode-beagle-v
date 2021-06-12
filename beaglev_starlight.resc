@@ -27,5 +27,12 @@ macro reset
 """
 runMacro $reset
 
+machine StartGdbServer 3333
+echo "GDB server running on port 3333"
+echo "Launch GDB with gdb-multiarch u-boot -ex 'target remote localhost:3333'"
+
+sysbus.U74_1 ExecutionMode SingleStep
+sysbus.U74_2 ExecutionMode SingleStep
+
 echo "Script loaded. Now start with with the 'start' command."
 echo ""
